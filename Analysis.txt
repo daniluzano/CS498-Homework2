@@ -1,0 +1,56 @@
+Part A: Latency test (ms)
+/register US instance
+request 1: 100.2 ms
+request 2: 205.0 ms
+request 3: 201.7 ms
+request 4: 204.1 ms
+request 5: 83.8 ms
+request 6: 89.2 ms
+request 7: 116.9 ms
+request 8: 122.2 ms
+request 9: 115.8 ms
+request 10: 97.5 ms
+
+/register EU instance
+request 1: 372.6 ms
+request 2: 520.9 ms
+request 3: 393.8 ms
+request 4: 527.6 ms
+request 5: 390.4 ms
+request 6: 546.4 ms
+request 7: 377.9 ms
+request 8: 535.8 ms
+request 9: 397.7 ms
+request 10: 513.3 ms
+
+/list US instance
+request 1: 138.2 ms
+request 2: 113.2 ms
+request 3: 137.7 ms
+request 4: 123.4 ms
+request 5: 136.5 ms
+request 6: 96.9 ms
+request 7: 112.2 ms
+request 8: 110.2 ms
+request 9: 122.3 ms
+request 10: 132.5 ms
+
+/list EU instance
+request 1: 375.5 ms
+request 2: 530.3 ms
+request 3: 396.1 ms
+request 4: 409.4 ms
+request 5: 594.1 ms
+request 6: 443.2 ms
+request 7: 589.2 ms
+request 8: 453.1 ms
+request 9: 427.7 ms
+request 10: 1417.4 ms
+
+Avg /register US: 133.6 ms
+Avg /register EU: 457.6 ms
+Avg /list     US: 122.3 ms
+Avg /list     EU: 563.6 ms
+
+Part B: Observing Eventual Consistency
+Not-found immediately after write: 0

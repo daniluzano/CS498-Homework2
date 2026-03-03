@@ -1,0 +1,14 @@
+Part A: Latency test (ms)
+For the latency test, I wrote a Python script using the requests library to send HTTP requests to both my US instance and EU instance.
+I created helper functions that wrap each request with time.perf_counter() to measure the total time from when the request is sent to when the response was received.
+For /register, I sent 10 requests to each instance and generated a unique username for each using uuid to avoid possibly regenerating a username used in a previous trial. 
+I recorded the latency of each request in a list and printed the time for each request. 
+I repeated the same process for /list on both the US and EU instances. 
+I calculated the average latency for /register and /list in each region by calling statistics.mean().
+
+Part B: Observing Eventual Consistency
+For the eventual consistency experiment, I tested how quickly data written in one region became visible in another region.
+In my script, I first cleared the datastore to ensure the data would not be skewed from previous runs. Then, for the 100 trials, 
+I wrote a new unique username to the US instance using /register and then immediately sent a /list request to the EU instance. 
+After each read, I checked if the new username appeared in the list of users returned by the EU instance. If it did not appear, I incremented a counter that tracked how many times the replication lag was observed.
+At the end, I printed out the total number of trials in which the new username was not found in the list immediately after registration.

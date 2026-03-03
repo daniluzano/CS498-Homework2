@@ -54,3 +54,16 @@ Avg /list     EU: 563.6 ms
 
 Part B: Observing Eventual Consistency
 Not-found immediately after write: 0
+
+Discussion: Why do you think the latencies differ? 
+What does your consistency experiment show?
+
+The latency measurements show a clear difference between the US EU region. For both /register and /list, the latency of the US instance (133.6 ms and 122.3 ms,  respectively) was significantly lower than the latency of the EU instance (457.6 ms and 563.6 ms, respectively).
+This difference occurred because of the geographical location from which I ran my script.
+Because I executed the script in the United States, requests sent to the us-central1 VM traveled a shorter distance than requests sent to europe-west1.
+The higher latency for the EU instance reflects the additional time and distance required for the network to communicate such a long distance.
+The occasional spike in time, such as the 1417 ms /list request, was may have been caused by temporary network congestion.
+
+In the eventual consistency experiment, the number of times the new username was not found in the list immediately after registration was zero. In my script, I wrote to the US instance and immediately read from the EU instance.
+This suggests that the replication lag between regions is minimal and undetectable in this experiment.
+The newly written data was visible almost immediately, even though the system operates under an eventually consistent model, which allows for temporary replication delays.
